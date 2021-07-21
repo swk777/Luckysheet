@@ -157,18 +157,8 @@ function setcellvalue(r, c, d, v) {
             }
 
             let mask = update(cell.ct.fa, vupdate);
-
-            if(mask === vupdate){ //若原来单元格格式 应用不了 要更新的值，则获取更新值的 格式
-                mask = genarate(vupdate);
-
-                cell.m = mask[0].toString();
-                cell.ct = mask[1];
-                cell.v = mask[2];
-            }
-            else{
-                cell.m = mask.toString();
-                cell.v = vupdate;
-            }
+            cell.m = mask.toString();
+            cell.v = vupdate;
         }
         else{
             if(isRealNum(vupdate) && !/^\d{6}(18|19|20)?\d{2}(0[1-9]|1[12])(0[1-9]|[12]\d|3[01])\d{3}(\d|X)$/i.test(vupdate)){

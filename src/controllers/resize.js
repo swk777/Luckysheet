@@ -408,14 +408,14 @@ export function menuToolBarWidth() {
                         ele: toolbarIdMap[current],
                         index: index++
                     }
-                }
-                if (next === '|') {
-                    if (getObjType(obj[current].ele) === 'array') {
-                        obj[current].ele.push(`#toolbar-separator-${camel2split(current)}`);
-                    } else {
-                        obj[current].ele = [obj[current].ele, `#toolbar-separator-${camel2split(current)}`];
+                    if (next === '|') {
+                        if (getObjType(obj[current].ele) === 'array') {
+                            obj[current].ele.push(`#toolbar-separator-${camel2split(current)}`);
+                        } else {
+                            obj[current].ele = [obj[current].ele, `#toolbar-separator-${camel2split(current)}`];
+                        }
                     }
-                }
+                }      
             }
         } else {
             obj = showtoolbar ? array2Config(defaultToolbar) : {};

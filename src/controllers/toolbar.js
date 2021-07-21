@@ -87,7 +87,7 @@ export const toolbarIdMap = {
     link: '#luckysheet-insertLink-btn-title', //'Insert picture'
     chart: '#luckysheet-chart-btn-title', //'chart' (the icon is hidden, but if the chart plugin is configured, you can still create a new chart by right click)
     postil: '#luckysheet-icon-postil', //'comment'
-    pivotTable: ['#luckysheet-pivot-btn-title'], //'PivotTable'
+    pivotTable: '#luckysheet-pivot-btn-title', //'PivotTable'
     function: ['#luckysheet-icon-function', '#luckysheet-icon-function-menu'], //'formula'
     frozenMode: ['#luckysheet-freezen-btn-horizontal', '#luckysheet-icon-freezen-menu'], //'freeze mode'
     sortAndFilter: '#luckysheet-icon-autofilter', //'sort and filter'
