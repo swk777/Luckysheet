@@ -809,7 +809,7 @@ const conditionformat = {
                         conditionName = "textContains";
 
                         //条件值
-                        let v = $("#luckysheet-editorConditionRule-dialog #conditionVal input").val().trim();
+                        let v = $("#luckysheet-editorConditionRule-dialog .textBox #conditionVal input").val().trim();
 
                         //条件值是否是选区
                         let rangeArr = _this.getRangeByTxt(v);

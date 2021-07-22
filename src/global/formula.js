@@ -2129,6 +2129,8 @@ const luckysheetformula = {
             _this.operatorjson = op;
         }
 
+        if (txt == null) return
+
         if (txt.substr(0, 1) == "=") {
             txt = txt.substr(1);
         }
