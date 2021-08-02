@@ -6,12 +6,19 @@ import locale from '../locale/locale';
 const functionlist = function(){
     let _locale = locale();
     // internationalization,get function list
-    let functionListOrigin = _locale.functionlist;
+    let customFormulaFunc = {}
+
+    let customFormulaHintList = Store.customFormula.map(c => {
+        customFormulaFunc[c.name] = c.validFunc;
+        return c.hint[Store.lang]
+    })
+
+    let functionListOrigin = _locale.functionlist.concat(customFormulaHintList);
 
     // add new property f
     for (let i = 0; i < functionListOrigin.length; i++) {
         let func = functionListOrigin[i];
-        func.f = functionImplementation[func.n];
+        func.f = functionImplementation[func.n] || customFormulaFunc[func.n];
     }
 
     Store.functionlist = functionListOrigin;

@@ -5781,6 +5781,13 @@ const luckysheetformula = {
             txt += ")";
         }
 
+        let funcName = txt.substr(1).split('(')[0]
+        let formula = Store.customFormula.find(f => f.name === funcName)
+
+        if (formula && formula.disableExec) {
+            return [ true, txt, txt ]
+        }
+
         if (index == null) {
             index = Store.currentSheetIndex;
         }
@@ -5925,7 +5932,7 @@ const luckysheetformula = {
             return [true, result, txt, { type: "dynamicArrayItem", data: dynamicArrayItem }];
         }
 
-        // console.log(result, txt);
+        console.log(result, txt);
 
         return [true, result, txt];
     },
