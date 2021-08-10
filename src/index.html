@@ -1891,6 +1891,26 @@
 					}
 				}]
 			}
+			options.customToolbars = [{
+				key: 'configPanel',
+				domId: '#luckysheet-icon-config-panel',
+				html: `<div class="luckysheet-toolbar-button luckysheet-inline-block" data-tips="属性"
+        id="luckysheet-icon-config-panel" role="button" style="user-select: none;">
+            <div class="luckysheet-toolbar-button-outer-box luckysheet-inline-block"
+            style="user-select: none;">
+                <div class="luckysheet-toolbar-button-inner-box luckysheet-inline-block"
+                style="user-select: none;">
+                    <div class="luckysheet-icon luckysheet-inline-block " style="user-select: none;">
+                        <div aria-hidden="true" class="luckysheet-icon-img-container luckysheet-icon-img luckysheet-icon-bold iconfont luckysheet-iconfont-jiacu"
+                        style="user-select: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>`,
+			callback: () => {}
+			}]
+			options.showtoolbarConfig = ['configPanel', '|', 'bold']
 			luckysheet.create(options);
 			})
 	</script>

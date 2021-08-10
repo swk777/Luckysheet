@@ -116,7 +116,12 @@ const menuButton = {
     luckysheetPaintSingle: false,
     initialMenuButton: function(){
         let _this = this;
-
+        const customToolbars = luckysheetConfigsetting.customToolbars
+        customToolbars.forEach(toolbar => {
+            $(`${toolbar.domId}`).click(function(){
+                toolbar.callback()
+            });
+        })
         //格式刷
         $("#luckysheet-icon-paintformat").click(function(e){
             e.stopPropagation();

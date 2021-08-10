@@ -834,9 +834,11 @@ export function createToolbarHtml() {
 
     const showtoolbar = luckysheetConfigsetting.showtoolbar;
     const showtoolbarConfig = luckysheetConfigsetting.showtoolbarConfig;
-
+    const customToolbars = luckysheetConfigsetting.customToolbars
     const buttonHTML = ['<div class="luckysheet-toolbar-left-theme"></div>'];
-
+    customToolbars.forEach(toolbar => {
+        htmlMap[toolbar.key] = toolbar.html
+    })
     // 数组形式直接生成
     if (getObjType(showtoolbarConfig) === 'array') {
         // 此时不根据 showtoolbar=false，showtoolbarConfig为某几个进行适配，此时showtoolbarConfig本身就是全部要显示的按钮

@@ -2078,6 +2078,10 @@ export function rowColumnOperationInitial(){
                         else{
                             d[r][c] = null;
                         }
+                        setTimeout(() => {
+                            // Hook function
+                            method.createHookFunction("cellUpdated", r, c, '', Store.flowdata[r][countfunc], false);
+                        }, 0);
                     }
                 }
             }

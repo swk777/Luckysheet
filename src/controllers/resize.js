@@ -328,6 +328,7 @@ export function changeSheetContainerSize(gridW, gridH){
 export function menuToolBarWidth() {
     const showtoolbar = luckysheetConfigsetting.showtoolbar;
     const showtoolbarConfig = luckysheetConfigsetting.showtoolbarConfig;
+    const customToolbars = luckysheetConfigsetting.customToolbars
 
     const toobarWidths = Store.toobarObject.toobarWidths = [];
     const toobarElements = Store.toobarObject.toobarElements = [];
@@ -350,6 +351,9 @@ export function menuToolBarWidth() {
             const obj = {};
             let current,next;
             let index = 0;
+            customToolbars.forEach(toolbar => {
+                toolbarIdMap[toolbar.key] = toolbar.domId
+            })
             for (let i = 0; i<arr.length; i++) {
                 current = arr[i];
                 next = arr[i + 1];
@@ -441,7 +445,6 @@ export function menuToolBarWidth() {
     }
     toobarElements.forEach((curr,index,arr)=>{
         arr[index] = curr.ele;
-
         if(index !== toobarElements.length - 1){
             if(curr.ele instanceof Array){
                 toobarWidths.push($(curr.ele[0]).offset().left);
