@@ -1486,7 +1486,7 @@ export function rowColumnOperationInitial(){
 
         let st_index = Store.luckysheet_select_save[0][Store.luckysheetRightHeadClickIs][0], 
             ed_index = Store.luckysheet_select_save[0][Store.luckysheetRightHeadClickIs][1];
-        if(!method.createHookFunction("rowDeleteBefore", st_index, ed_index)){
+        if(!method.createHookFunction("rowDeleteBefore", st_index, ed_index, Store.luckysheetRightHeadClickIs)){
         	return; 
         }
 		luckysheetdeletetable(Store.luckysheetRightHeadClickIs, st_index, ed_index);
@@ -1519,7 +1519,7 @@ export function rowColumnOperationInitial(){
 
         let st_index = Store.luckysheet_select_save[0].row[0], 
             ed_index = Store.luckysheet_select_save[0].row[1];
-		if(!method.createHookFunction("rowDeleteBefore", st_index, ed_index)){
+		if(!method.createHookFunction("rowDeleteBefore", st_index, ed_index, Store.luckysheetRightHeadClickIs)){
 			return; 
 		}
         luckysheetdeletetable('row', st_index, ed_index);
