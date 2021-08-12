@@ -1104,7 +1104,7 @@ export function rowColumnOperationInitial(){
         }
 
         let st_index = Store.luckysheet_select_save[0][Store.luckysheetRightHeadClickIs][0];
-		if(!method.createHookFunction("rowInsertBefore",  st_index, value, "lefttop")){ 
+		if(!method.createHookFunction("rowInsertBefore",  st_index, value, "lefttop", Store.luckysheetRightHeadClickIs)){ 
 			return; 
 		}
 		luckysheetextendtable(Store.luckysheetRightHeadClickIs, st_index, value, "lefttop");
@@ -1121,7 +1121,7 @@ export function rowColumnOperationInitial(){
         }
 
         let st_index = Store.luckysheet_select_save[0].row[0];
-		if(!method.createHookFunction("rowInsertBefore",  st_index, 1, "lefttop")){ 
+		if(!method.createHookFunction("rowInsertBefore",  st_index, 1, "lefttop", 'row')){ 
 			return; 
 		}
         luckysheetextendtable('row', st_index, 1, "lefttop");
@@ -1137,6 +1137,9 @@ export function rowColumnOperationInitial(){
         }
 
         let st_index = Store.luckysheet_select_save[0].column[0];
+        if(!method.createHookFunction("rowInsertBefore",  st_index, 1, "lefttop", 'column')){ 
+			return; 
+		}
         luckysheetextendtable('column', st_index, 1, "lefttop");
 
 
@@ -1337,7 +1340,7 @@ export function rowColumnOperationInitial(){
         }
 
         let st_index = Store.luckysheet_select_save[0][Store.luckysheetRightHeadClickIs][1];
-		if(!method.createHookFunction("rowInsertBefore",  st_index, value, "rightbottom")){
+		if(!method.createHookFunction("rowInsertBefore",  st_index, value, "rightbottom", Store.luckysheetRightHeadClickIs)){
 			return; 
 		}
         luckysheetextendtable(Store.luckysheetRightHeadClickIs, st_index, value, "rightbottom");
