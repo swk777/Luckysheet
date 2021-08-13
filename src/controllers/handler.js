@@ -5374,7 +5374,7 @@ export default function luckysheetHandler() {
 
             
             // hook
-            if(!method.createHookFunction('rangePasteBefore',Store.luckysheet_select_save,txtdata)){
+            if(!method.createHookFunction('rangePasteBefore',Store.luckysheet_select_save,txtdata, Store.luckysheet_copy_save["copyRange"], Store.luckysheet_paste_iscut)){
                 return;
             }
 
