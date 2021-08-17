@@ -1743,6 +1743,17 @@ const luckysheetformula = {
     functionCopy: function (txt, mode, step) {
         let _this = this;
 
+        if (txt.substr(0, 1) == "=") {
+            txt = txt.substr(1);
+        }
+
+        let funcName = txt.split('(')[0]
+        let formula = Store.customFormula.find(f => f.name === funcName)
+
+        if (formula && formula.isCustom) {
+            return txt
+        }
+
         if (_this.operatorjson == null) {
             let arr = _this.operator.split("|"),
                 op = {};
@@ -1760,10 +1771,6 @@ const luckysheetformula = {
 
         if (step == null) {
             step = 1;
-        }
-
-        if (txt.substr(0, 1) == "=") {
-            txt = txt.substr(1);
         }
 
         let funcstack = txt.split("");
@@ -5784,7 +5791,7 @@ const luckysheetformula = {
         let funcName = txt.substr(1).split('(')[0]
         let formula = Store.customFormula.find(f => f.name === funcName)
 
-        if (formula && formula.disableExec) {
+        if (formula && formula.isCustom) {
             return [ true, txt, txt ]
         }
 
@@ -5932,7 +5939,6 @@ const luckysheetformula = {
             return [true, result, txt, { type: "dynamicArrayItem", data: dynamicArrayItem }];
         }
 
-        console.log(result, txt);
 
         return [true, result, txt];
     },

@@ -1910,6 +1910,40 @@
         </div>`,
 			callback: () => {}
 			}]
+			options.customFormula = [
+				{
+					name: 'G_',
+					validFunc: (...rest) => `=G_(${rest.join(',')})`,
+					isCustom: true,
+					hint: {
+						zh: {
+							n: 'G_',
+							t: 15,
+							d: '从一张视图中选取一个字段对字段所有的值自动进行纵向/横向扩展。',
+							a: '对派生表字段进行横向扩展与合并单元格',
+							m: [ 2, 2 ],
+							p: [
+								{
+									name: '视图名',
+									detail: '首先选择一张视图。',
+									example: '销售视图',
+									require: 'm',
+									repeat: 'n',
+									type: 'rangeall',
+								},
+								{
+									name: '字段名',
+									detail: '再从视图中选取一个字段。',
+									example: '销售金额',
+									require: 'm',
+									repeat: 'n',
+									type: 'rangeall',
+								},
+							],
+						},
+					},
+				}
+			]
 			options.showtoolbarConfig = ['configPanel', '|', 'bold']
 			luckysheet.create(options);
 			})
