@@ -28,6 +28,7 @@ import formula from '../global/formula';
 import cleargridelement from '../global/cleargridelement';
 import tooltip from '../global/tooltip';
 import locale from '../locale/locale';
+import method from '../global/method';
 import {enterKeyControll} from './inlineString';
 import Store from '../store';
 
@@ -671,6 +672,7 @@ export function keyboardInitial(){
                 else if (kcode == 90) {//Ctrl + Z  撤销
                     controlHistory.redo(event);
                     luckysheetactiveCell();
+                    method.createHookFunction("afterUndo"); // undo hook
                     event.stopPropagation();
                     return;
                 }

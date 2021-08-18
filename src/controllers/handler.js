@@ -5047,6 +5047,7 @@ export default function luckysheetHandler() {
     //回退 重做 按钮
     $("#luckysheet-icon-undo").click(function (event) {
         controlHistory.redo(event);
+        method.createHookFunction("afterUndo"); // undo hook
     });
     $("#luckysheet-icon-redo").click(function (event) {
         controlHistory.undo(event);
@@ -5374,7 +5375,7 @@ export default function luckysheetHandler() {
 
             
             // hook
-            if(!method.createHookFunction('rangePasteBefore',Store.luckysheet_select_save,txtdata, Store.luckysheet_copy_save["copyRange"], Store.luckysheet_paste_iscut)){
+            if(!method.createHookFunction('rangePasteBefore',Store.luckysheet_select_save,txtdata)){
                 return;
             }
 
