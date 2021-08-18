@@ -30,6 +30,7 @@ import { setcellvalue } from '../global/setdata';
 import { getFontStyleByCell, checkstatusByCell} from '../global/getdata';
 import { countfunc } from '../global/count';
 import { hideMenuByCancel } from '../global/cursorPos';
+import method from '../global/method';
 import { getSheetIndex, getRangetxt, getluckysheetfile } from '../methods/get';
 import { setluckysheetfile } from '../methods/set';
 import {isInlineStringCell,updateInlineStringFormat,convertCssToStyleList,inlineStyleAffectAttribute,updateInlineStringFormatOutside} from './inlineString';
@@ -1273,6 +1274,7 @@ const menuButton = {
 
             let d = editor.deepCopyFlowData(Store.flowdata);
             _this.updateFormat_mc(d, "mergeAll");
+            method.createHookFunction("cellMergeAfter")
         });
 
         $("#luckysheet-icon-merge-menu").click(function(){
