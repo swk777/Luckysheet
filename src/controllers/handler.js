@@ -5626,7 +5626,10 @@ export default function luckysheetHandler() {
                 }
                 else {
                     txtdata = clipboardData.getData("text/plain");
-                    selection.pasteHandler(txtdata);
+                    if (typeof txtdata === 'string' && txtdata.startsWith('=') && txtdata.substr(1)) {
+                        txtdata = [ [ { f: txtdata, v: formula.execfunction(txtdata, Store.luckysheet_select_save[0]["row"][0], Store.luckysheet_select_save[0]["column"][0])[1] } ] ]
+                    }
+                    selection.pasteHandler(txtdata, {});
                 }
             }
         }
