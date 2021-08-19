@@ -440,6 +440,7 @@ const method = {
         $("#luckysheet-modal-dialog-mask, #luckysheetTextSizeTest, #luckysheet-icon-morebtn-div").remove();
         $("#luckysheet-input-box").parent().remove();
         $("#luckysheet-formula-help-c").remove();
+        $("#luckysheet-formula-search-c").remove();
         $(".chartSetting, .luckysheet-modal-dialog-slider").remove();
 
         //document event release
