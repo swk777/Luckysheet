@@ -3151,7 +3151,7 @@ const luckysheetformula = {
             else if (p.length == n.length) {
                 if (vp_a[i + 1] != null && v_a[i + 1] != null && vp_a[i + 1].length < v_a[i + 1].length) {
                     pfri[0] = pfri[0] + 1;
-                    pfri[1] = 1;
+                    pfri[1] = v_a[i + 1].length;
                 }
 
                 return pfri;
