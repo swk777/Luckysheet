@@ -1232,11 +1232,11 @@ const luckysheetformula = {
             "opacity": "0.13"
         });
     },
-    updatecell: function (r, c, value, isRefresh = true) {
+    updatecell: function (r, c, value, isRefresh = true, isFormulaBar) {
 
         let _this = this;
 
-        let $input = $("#luckysheet-rich-text-editor");
+        let $input = isFormulaBar ? $("#luckysheet-functionbox-cell") : $("#luckysheet-rich-text-editor");
         let inputText = $input.text(), inputHtml = $input.html();
 
 

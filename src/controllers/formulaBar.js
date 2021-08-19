@@ -56,7 +56,7 @@ export function formulaBarInitial(){
                 formula.searchFunctionEnter($("#luckysheet-formula-search-c").find(".luckysheet-formula-search-item-active"));
             }
             else {
-                formula.updatecell(Store.luckysheetCellUpdate[0], Store.luckysheetCellUpdate[1]);
+                formula.updatecell(Store.luckysheetCellUpdate[0], Store.luckysheetCellUpdate[1], undefined, true, true);
                 Store.luckysheet_select_save = [{ "row": [Store.luckysheetCellUpdate[0], Store.luckysheetCellUpdate[0]], "column": [Store.luckysheetCellUpdate[1], Store.luckysheetCellUpdate[1]], "row_focus": Store.luckysheetCellUpdate[0], "column_focus": Store.luckysheetCellUpdate[1] }];
                 luckysheetMoveHighlightCell("down", 1, "rangeOfSelect");
                 //$("#luckysheet-functionbox-cell").blur();
@@ -146,7 +146,7 @@ export function formulaBarInitial(){
             $("#luckysheet-search-formula-parm-select").hide();
         }
 
-        formula.updatecell(Store.luckysheetCellUpdate[0], Store.luckysheetCellUpdate[1]);
+        formula.updatecell(Store.luckysheetCellUpdate[0], Store.luckysheetCellUpdate[1], undefined, true, true);
         luckysheetMoveHighlightCell("down", 0, "rangeOfSelect");
     });
 
