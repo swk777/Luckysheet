@@ -3351,7 +3351,7 @@ const luckysheetformula = {
             value = xssDeal(value);
             if (value.length > 0 && value.substr(0, 1) == "=" && (kcode != 229 || value.length == 1)) {
                 value = _this.functionHTMLGenerate(value);
-                value1 = _this.functionHTMLGenerate(value1txt);
+                let value2 = _this.functionHTMLGenerate(value1txt);
 
                 if (window.getSelection) { // all browsers, except IE before version 9
                     let currSelection = window.getSelection();
@@ -3360,7 +3360,9 @@ const luckysheetformula = {
                         _this.functionRangeIndex = [editorlen - 1, $("#luckysheet-rich-text-editor").find("span").eq(editorlen - 1).text().length];
                     }
                     else {
-                        _this.functionRangeIndex = [$(currSelection.anchorNode).parent().index(), currSelection.anchorOffset];
+                        let prevLen = value1.split('</span>').length - 1
+                        let currLen = value2.split('</span>').length - 1
+                        _this.functionRangeIndex = [$(currSelection.anchorNode).parent().index() + currLen - prevLen, currSelection.anchorOffset];
                     }
                 }
                 else { // Internet Explorer before version 9
@@ -3369,7 +3371,7 @@ const luckysheetformula = {
                 }
 
                 $editer.html(value);
-                _this.functionRange($editer, value, value1);
+                _this.functionRange($editer, value, value2);
                 _this.canceFunctionrangeSelected();
 
                 if (kcode != 46) {//delete不执行此函数
