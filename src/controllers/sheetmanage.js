@@ -808,6 +808,7 @@ const sheetmanage = {
                 _this.createSheet();
 
                 let execF = function(){
+                    if (!Store.luckysheetfile[_this.getSheetIndex(file["index"])]) return
                     _this.mergeCalculation(file["index"]);
                     _this.setSheetParam(false);
                     // editor.webWorkerFlowDataCache(Store.flowdata);//worker存数据
@@ -1051,7 +1052,7 @@ const sheetmanage = {
     },
     mergeCalculationSheet:{},
     mergeCalculation:function(index){
-        let file = Store.luckysheetfile[this.getSheetIndex(index)];
+        let file = Store.luckysheetfile[this.getSheetIndex(index)] || {};
         let config = file.config, data = file.data;
         if(config==null){
             return;
