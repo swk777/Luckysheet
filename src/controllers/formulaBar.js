@@ -103,7 +103,7 @@ export function formulaBarInitial(){
         else if (kcode == keycode.RIGHT && parseInt($inputbox.css("top")) > 0) {
             formula.rangeHightlightselected($("#luckysheet-functionbox-cell"));
         }
-        else if (!((kcode >= 112 && kcode <= 123) || kcode <= 46 || kcode == 144 || kcode == 108 || event.ctrlKey || event.altKey || (event.shiftKey && (kcode == 37 || kcode == 38 || kcode == 39 || kcode == 40))) || kcode == 8 || kcode == 32 || kcode == 46 || (event.ctrlKey && kcode == 86)) {
+        else if (!((kcode >= 112 && kcode <= 123) || kcode <= 46 || kcode == 144 || kcode == 108 || event.metaKey || event.ctrlKey || event.altKey || (event.shiftKey && (kcode == 37 || kcode == 38 || kcode == 39 || kcode == 40))) || kcode == 8 || kcode == 32 || kcode == 46 || ((event.ctrlKey || event.metaKey) && kcode == 86)) {
             formula.functionInputHanddler($("#luckysheet-rich-text-editor"), $("#luckysheet-functionbox-cell"), kcode);
         }
     }).click(function () {

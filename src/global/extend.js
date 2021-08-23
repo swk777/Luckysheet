@@ -150,7 +150,7 @@ function luckysheetextendtable(type, index, value, direction, sheetIndex) {
             }
         }
     }
-
+    
     //筛选配置变动
     let filter_select = file.filter_select;
     let filter = file.filter;
@@ -631,7 +631,7 @@ function luckysheetextendtable(type, index, value, direction, sheetIndex) {
             curRow = [...d][index]
         for(let c = 0; c < d[0].length; c++){
             let cell = curRow[c],
-            templateCell = cell ?  {...cell, v: '', m: ''} : Store.defaultCell;
+            templateCell = cell ?  {...cell, v: '', m: '', f: ''} : Store.defaultCell;
             row.push(templateCell);
         }
 

@@ -3370,8 +3370,8 @@ const luckysheetformula = {
                     _this.functionRangeIndex = textRange;
                 }
 
-                $editer.html(value);
-                _this.functionRange($editer, value, value2);
+                    $editer.html(value);
+                    _this.functionRange($editer, value, value2);
                 _this.canceFunctionrangeSelected();
 
                 if (kcode != 46) {//delete不执行此函数
@@ -3382,7 +3382,7 @@ const luckysheetformula = {
                 _this.rangestart = false;
                 _this.rangedrag_column_start = false;
                 _this.rangedrag_row_start = false;
-
+                
                 _this.rangeHightlightselected($editer, kcode);
 
             }
