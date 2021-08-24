@@ -441,6 +441,7 @@ const method = {
         $("#luckysheet-input-box").parent().remove();
         $("#luckysheet-formula-help-c").remove();
         $("#luckysheet-formula-search-c").remove();
+        $("#luckysheet-search-replace").remove();
         $(".chartSetting, .luckysheet-modal-dialog-slider").remove();
 
         //document event release
