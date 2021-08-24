@@ -5610,6 +5610,15 @@ export default function luckysheetHandler() {
                     });
 
                     Store.luckysheet_selection_range = [];
+                    data = data.map(rowData => rowData?.map(cell => {
+                        if (cell.v.startsWith('=')) {
+                            let funcName = cell.v.substr(1).split('(')[0]
+                            if (funcName && Store.customFormula.some(f => f.name === funcName)) {
+                                return { ...cell, f: cell.v }
+                            }
+                        }
+                        return cell
+                    }))
                     selection.pasteHandler(data, borderInfo);
                     $("#luckysheet-copy-content").empty();
                 }
