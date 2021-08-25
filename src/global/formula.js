@@ -3362,7 +3362,7 @@ const luckysheetformula = {
                     else {
                         let prevLen = value1.split('</span>').length - 1
                         let currLen = value2.split('</span>').length - 1
-                        _this.functionRangeIndex = [$(currSelection.anchorNode).parent().index() + currLen - prevLen, currSelection.anchorOffset];
+                        _this.functionRangeIndex = [$(currSelection.anchorNode).parent().index() + currLen - prevLen, currSelection.anchorOffset - currLen + prevLen];
                     }
                 }
                 else { // Internet Explorer before version 9
