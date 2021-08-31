@@ -961,7 +961,7 @@ const luckysheetformula = {
                 result_i++;
             }
 
-            if (result_i >= 10) {
+            if (result_i >= 15) {
                 break;
             }
         }
