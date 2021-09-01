@@ -9601,6 +9601,7 @@ export default {
         pleaseEnterInteger: 'Please enter an integer between 1 and 1000',
         onlySingleCell: 'Only a single cell can be referenced',
         conditionValueCanOnly: 'The condition value can only be a number or a single cell',
+        conditionValueNoEmpty: 'The condition value cannot be null',
         ruleTypeItem1: 'Format all cells based on their respective values',
         ruleTypeItem2: 'Only format cells that contain',
         ruleTypeItem2_title: 'Only for cells that meet the following conditions',

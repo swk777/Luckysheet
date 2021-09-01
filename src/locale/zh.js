@@ -9828,6 +9828,7 @@ export default {
         pleaseEnterInteger: '请输入一个介于 1 和 1000 之间的整数',
         onlySingleCell: '只能对单个单元格进行引用',
         conditionValueCanOnly: '条件值只能是数字或者单个单元格',
+        conditionValueNoEmpty: '条件值不能为空',
         ruleTypeItem1: '基于各自值设置所有单元格的格式',
         ruleTypeItem2: '只为包含以下内容的单元格设置格式',
         ruleTypeItem2_title: '只为满足以下条件的单元格',

@@ -424,7 +424,7 @@ const conditionformat = {
                         conditionName = "textContains";
 
                         //条件值
-                        let v = $("#luckysheet-newConditionRule-dialog #conditionVal input").val().trim();
+                        let v = $("#luckysheet-newConditionRule-dialog .textBox #conditionVal input").val().trim();
 
                         //条件值是否是选区
                         let rangeArr = _this.getRangeByTxt(v);
@@ -449,7 +449,7 @@ const conditionformat = {
                         }
                         else if(rangeArr.length == 0){
                             if(v == ""){
-                                _this.infoDialog(conditionformat_Text.conditionValueCanOnly, "");
+                                _this.infoDialog(conditionformat_Text.conditionValueNoEmpty, "");
                                 return;
                             }
                             else{
@@ -833,8 +833,8 @@ const conditionformat = {
                             }
                         }
                         else if(rangeArr.length == 0){
-                            if(isNaN(v) || v == ""){
-                                _this.infoDialog(conditionformat_Text.conditionValueCanOnly, "");
+                            if(v == ""){
+                                _this.infoDialog(conditionformat_Text.conditionValueNoEmpty, "");
                                 return;
                             }
                             else{
@@ -1082,7 +1082,11 @@ const conditionformat = {
                     }
                 }
                 else if(rangeArr.length == 0){
-                    if(isNaN(v) || v == ""){
+                    if (v == "") {
+                        _this.infoDialog(conditionformat_Text.conditionValueNoEmpty, "");
+                        return;
+                    }
+                    if(isNaN(v) && conditionName != "textContains"){
                         _this.infoDialog(conditionformat_Text.conditionValueCanOnly, "");
                         return;
                     }
