@@ -3151,7 +3151,7 @@ const luckysheetformula = {
             else if (p.length == n.length) {
                 if (vp_a[i + 1] != null && v_a[i + 1] != null && vp_a[i + 1].length < v_a[i + 1].length) {
                     pfri[0] = pfri[0] + 1;
-                    pfri[1] = v_a[i + 1].length;
+                    pfri[1] = 1;
                 }
 
                 return pfri;
@@ -3360,9 +3360,20 @@ const luckysheetformula = {
                         _this.functionRangeIndex = [editorlen - 1, $("#luckysheet-rich-text-editor").find("span").eq(editorlen - 1).text().length];
                     }
                     else {
-                        let prevLen = value1.split('</span>').length - 1
-                        let currLen = value2.split('</span>').length - 1
-                        _this.functionRangeIndex = [$(currSelection.anchorNode).parent().index() + currLen - prevLen, currSelection.anchorOffset - currLen + prevLen];
+                        let re = /<span.*?>/g;
+                        let prevVal = value1.replace(re, "").split('</span>').slice(0, -1);
+                        let currVal = value2.replace(re, "").split('</span>').slice(0, -1);
+                        let valIndex = $(currSelection.anchorNode).parent().index();
+                        let strIndex = currSelection.anchorOffset
+                        if (prevVal[valIndex] !== currVal[valIndex]) {
+                            if (prevVal[valIndex].startsWith(',') && currVal[valIndex] === ',') {
+                                strIndex = strIndex - 1
+                            } else if (prevVal[valIndex] + prevVal[valIndex + 1] === currVal[valIndex] && prevVal.length === currVal.length + 1) {
+                                valIndex = valIndex - 1
+                            }
+                            valIndex = valIndex + 1
+                        }
+                        _this.functionRangeIndex = [valIndex, strIndex];
                     }
                 }
                 else { // Internet Explorer before version 9
@@ -3425,7 +3436,7 @@ const luckysheetformula = {
             }
 
 
-        }, 1);
+        }, 30);
     },
     functionHTMLGenerate: function (txt) {
         let _this = this;
