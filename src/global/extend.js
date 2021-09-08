@@ -786,7 +786,7 @@ function luckysheetextendtable(type, index, value, direction, sheetIndex) {
             curd= [...d];
         for(let r = 0; r < d.length; r++){
             let cell = curd[r][index],
-            templateCell = cell ?  {...cell, v: '', m: ''} : Store.defaultCell;
+            templateCell = cell ?  {...cell, v: '', m: '', f: ''} : Store.defaultCell;
             col.push(templateCell);
         }
 
