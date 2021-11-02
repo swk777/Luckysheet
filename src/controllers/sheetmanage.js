@@ -600,7 +600,7 @@ const sheetmanage = {
         if (file.data && file.data.length > 0) {
             for (let i = 0; i < data.length; i++) {
                 for (let j = 0; j < data[0].length; j++) {
-                    setcellvalue(i, j, data, data[i][j]);
+                    setcellvalue(i, j, data, data[i][j], true);
                 }
             }
         } else {
@@ -617,7 +617,7 @@ const sheetmanage = {
                     if(c >= data[0].length){
                         data = datagridgrowth(data, 0, c - data[0].length + 1);
                     }
-                    setcellvalue(r, c, data, v);
+                    setcellvalue(r, c, data, v, true);
                 }
             }
         }
