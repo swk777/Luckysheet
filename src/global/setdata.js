@@ -77,7 +77,7 @@ function setcellvalue(r, c, d, v, init = false) {
     }
     else if(cell.qp == 1){
         cell.m = vupdateStr;
-        cell.ct = { "fa": "@", "t": "s" };
+        // cell.ct = { "fa": "@", "t": "s" };
         cell.v = vupdateStr;
     }
     else if(vupdateStr.toUpperCase() === "TRUE"){
