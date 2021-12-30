@@ -1768,7 +1768,7 @@ const conditionformat = {
                 let type = ruleArr[i]["type"];            //规则类型
                 let format = ruleArr[i]["format"];        //规则样式
                 let cellrange = ruleArr[i]["cellrange"];  //规则应用范围
-
+                
                 let ruleName;         //规则名称
                 let formatHtml = '';  //样式dom
                 if(type == "dataBar"){
@@ -2245,9 +2245,8 @@ const conditionformat = {
                     $("#luckysheet-editorConditionRule-dialog #formulaConditionVal input").val(val1);
                 }
             }
-
-            $("#luckysheet-editorConditionRule-dialog #textcolorshow").spectrum("set", ruleFormat.textColor);
-            $("#luckysheet-editorConditionRule-dialog #cellcolorshow").spectrum("set", ruleFormat.cellColor);
+            $("#luckysheet-editorConditionRule-dialog #textcolorshow").spectrum("set", ruleFormat.textColor || '#9c0006');
+            $("#luckysheet-editorConditionRule-dialog #cellcolorshow").spectrum("set", ruleFormat.cellColor || '#ffc7ce');
         }
     },
     infoDialog: function(title, content){
