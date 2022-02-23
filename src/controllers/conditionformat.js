@@ -1192,16 +1192,16 @@ const conditionformat = {
 
             //格式颜色
             let textcolor;
-            if($("#checkTextColor").is(":checked")){
-                textcolor = $("#textcolorshow").spectrum("get").toHexString();
+            if($("#luckysheet-conditionformat-dialog #checkTextColor").is(":checked")){
+                textcolor = $("#luckysheet-conditionformat-dialog #textcolorshow").spectrum("get").toHexString();
             }
             else{
                 textcolor = null;
             }
 
             let cellcolor;
-            if($("#checkCellColor").is(":checked")){
-                cellcolor = $("#cellcolorshow").spectrum("get").toHexString();
+            if($("#luckysheet-conditionformat-dialog #checkCellColor").is(":checked")){
+                cellcolor = $("#luckysheet-conditionformat-dialog #cellcolorshow").spectrum("get").toHexString();
             }
             else{
                 cellcolor = null;
