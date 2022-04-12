@@ -796,7 +796,7 @@ function luckysheetDrawMain(scrollWidth, scrollHeight, drawWidth, drawHeight, of
         c = margeMaindata.c;
 
         let mainCell = Store.flowdata[r][c];
-
+        if (!mainCell) continue;
         if (c == 0) {
             start_c = -scrollWidth;
         }

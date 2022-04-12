@@ -9,6 +9,7 @@ import { setcellvalue } from '../global/setdata';
 import { jfrefreshgrid } from '../global/refresh';
 import editor from '../global/editor';
 import tooltip from '../global/tooltip';
+import method from '../global/method';
 import func_methods from '../global/func_methods';
 import Store from '../store';
 import locale from '../locale/locale';
@@ -636,6 +637,10 @@ const luckysheetSearchReplace = {
         else if (row_pre - scrollTop - 20 < 0) {
             $("#luckysheet-scrollbar-y").scrollTop(row_pre - 20);
         }
+        setTimeout(() => {
+            // Hook function
+            method.createHookFunction("cellUpdated", r, c, '', Store.flowdata[r][c], false);
+        }, 0);
     },
     replaceAll: function(){
         let _this = this;
