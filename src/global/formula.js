@@ -3149,7 +3149,7 @@ const luckysheetformula = {
                 return pfri;
             }
             else if (p.length == n.length) {
-                if (vp_a[i + 1] != null && v_a[i + 1] != null && vp_a[i + 1].length < v_a[i + 1].length) {
+                if (vp_a[i + 1] != null && v_a[i + 1] != null && vp_a[i + 1].length < v_a[i + 1].length && pfri[1] === n.length + 1) {
                     pfri[0] = pfri[0] + 1;
                     pfri[1] = 1;
                 }
@@ -3189,7 +3189,7 @@ const luckysheetformula = {
                 }
             }
             else if (p.length == n.length) {
-                if (v_a[i + 1] != null && (v_a[i + 1].substr(0, 1) == '"' || v_a[i + 1].substr(0, 1) == '{' || v_a[i + 1].substr(0, 1) == '}')) {
+                if (v_a[i + 1] != null && (v_a[i + 1].substr(0, 1) == '"' || v_a[i + 1].substr(0, 1) == '{') && pfri[1] === n.length + 1) {
                     pfri[0] = pfri[0] + 1;
                     pfri[1] = 1;
                 }
@@ -3205,14 +3205,11 @@ const luckysheetformula = {
                 else if (v_a[i] != null && v_a[i] == '{)') {
                     pfri[1] = 1;
                 }
-                else {
-                    pfri[1] = n.length;
-                }
 
                 return pfri;
             }
             else if (p.length > n.length) {
-                if (v_a[i + 1] != null && (v_a[i + 1].substr(0, 1) == '"' || v_a[i + 1].substr(0, 1) == '{' || v_a[i + 1].substr(0, 1) == '}')) {
+                if (v_a[i + 1] != null && (v_a[i + 1].substr(0, 1) == '"' || v_a[i + 1].substr(0, 1) == '{')) {
                     pfri[0] = pfri[0] + 1;
                     pfri[1] = 1;
                 }
@@ -3220,6 +3217,10 @@ const luckysheetformula = {
                 return pfri;
             }
             else if (p.length < n.length) {
+                if (vp_a[i] != null && /{.*?}/.test(vp_a[i]) && v_a[i].substr(0, 1) === '"') {
+                    pfri[1] = 1;
+                }
+
                 return pfri;
             }
 
@@ -3241,8 +3242,9 @@ const luckysheetformula = {
                 }
             }
             else if (p.length == n.length) {
-                if (vp_a[i + 1] != null && (vp_a[i + 1].substr(0, 1) == '"' || vp_a[i + 1].substr(0, 1) == '{' || vp_a[i + 1].substr(0, 1) == '}')) {
-                    pfri[1] = n.length;
+                if (vp_a[i + 1] != null && (vp_a[i + 1].substr(0, 1) == '"' || vp_a[i + 1].substr(0, 1) == '{' || vp_a[i + 1].substr(0, 1) == '}') && v_a.join('').length > vp_a.join('').length && vp_a[i + 1] === n.length + 1) {
+                    pfri[0] = pfri[0] + 1;
+                    pfri[1] = 1;
                 }
                 else if (v_a[i + 1] != null && v_a[i + 1].substr(0, 1) == '"' && (v_a[i + 1].substr(0, 1) == '{' || v_a[i + 1].substr(0, 1) == '}')) {
                     pfri[0] = pfri[0] + 1;
@@ -3254,14 +3256,9 @@ const luckysheetformula = {
                 else if (n != null && n.substr(0, 1) == '{' && n.substr(n.length - 1, 1) == '}' && p.substr(0, 1) == '{' && p.substr(p.length - 1, 1) == ')') {
                     pfri[1] = n.length;
                 }
-                else {
+                else if (n != null && pfri[1] > n.length){
                     pfri[0] = pfri[0] + vlen - vplen;
-                    if (v_a.length > vp_a.length) {
-                        pfri[1] = v_a[i + 1].length;
-                    }
-                    else {
-                        pfri[1] = 1;
-                    }
+                    pfri[1] = 1;
                 }
 
                 return pfri;
@@ -3272,7 +3269,7 @@ const luckysheetformula = {
                 }
                 else if (v_a[i + 1] != null && /{.*?}/.test(v_a[i + 1])) {
                     pfri[0] = pfri[0] + 1;
-                    pfri[1] = v_a[i + 1].length;
+                    pfri[1] = pfri[1] - n.length;
                 }
                 else if (p != null && v_a[i + 1].substr(0, 1) == '"' && (p.indexOf("{") > -1 || p.indexOf("}") > -1)) {
                     pfri[0] = pfri[0] + 1;
