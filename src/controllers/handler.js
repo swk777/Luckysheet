@@ -1667,6 +1667,34 @@ export default function luckysheetHandler() {
             }
 
             $("#luckysheet-freezebar-horizontal").find(".luckysheet-freezebar-horizontal-drop").css({ "top": top });
+            const rowIndex = luckysheetFreezen.freezenhorizontaldata[1] - 1
+            const order = getSheetIndex(Store.currentSheetIndex)
+            const frozen = Store.luckysheetfile[order]["frozen"]
+            if (frozen?.type === 'row') {
+                if (rowIndex < 0) {
+                    luckysheetFreezen.saveFrozen('freezenCancel', order)
+                } else {
+                    luckysheetFreezen.saveFrozen('freezenRowRange', order, { row_focus: rowIndex, column_focus: 0 })
+                }
+            } else if (frozen?.type === 'both') {
+                if (rowIndex < 0) {
+                    luckysheetFreezen.saveFrozen('freezenColumn', order)
+                } else {
+                    luckysheetFreezen.saveFrozen('freezenRCRange', order, { row_focus: rowIndex, column_focus: 0 })
+                }
+            } else if (frozen?.type === 'rangeRow') {
+                if (rowIndex < 0) {
+                    luckysheetFreezen.saveFrozen('freezenCancel', order)
+                } else {
+                    luckysheetFreezen.saveFrozen('freezenRowRange', order, { row_focus: rowIndex, column_focus: frozen?.range?.column_focus || 0 })
+                }
+            } else if (frozen?.type === 'rangeBoth') {
+                if (rowIndex < 0) {
+                    luckysheetFreezen.saveFrozen('freezenColumnRange', order, frozen?.range)
+                } else {
+                    luckysheetFreezen.saveFrozen('freezenRCRange', order, { row_focus: rowIndex, column_focus: frozen?.range?.column_focus || 0 })
+                }
+            }
             luckysheetFreezen.saveFreezen(luckysheetFreezen.freezenhorizontaldata, top, null, null);
         }
         else if (!!luckysheetFreezen.verticalmovestate) {
@@ -1703,6 +1731,34 @@ export default function luckysheetHandler() {
             }
 
             $("#luckysheet-freezebar-vertical").find(".luckysheet-freezebar-vertical-drop").css({ "left": left });
+            const columnIndex = luckysheetFreezen.freezenverticaldata[1] - 1
+            const order = getSheetIndex(Store.currentSheetIndex)
+            const frozen = Store.luckysheetfile[order]["frozen"]
+            if (frozen?.type === 'column') {
+                if (columnIndex < 0) {
+                    luckysheetFreezen.saveFrozen('freezenCancel', order)
+                } else {
+                    luckysheetFreezen.saveFrozen('freezenColumnRange', order, { row_focus: 0, column_focus: columnIndex })
+                }
+            } else if (frozen?.type === 'both') {
+                if (columnIndex < 0) {
+                    luckysheetFreezen.saveFrozen('freezenRow', order)
+                } else {
+                    luckysheetFreezen.saveFrozen('freezenRCRange', order, { row_focus: 0, column_focus: columnIndex })
+                }
+            } else if (frozen?.type === 'rangeColumn') {
+                if (columnIndex < 0) {
+                    luckysheetFreezen.saveFrozen('freezenCancel', order)
+                } else {
+                    luckysheetFreezen.saveFrozen('freezenColumnRange', order, { row_focus: frozen?.range?.row_focus || 0, column_focus: columnIndex })
+                }
+            } else if (frozen?.type === 'rangeBoth') {
+                if (columnIndex < 0) {
+                    luckysheetFreezen.saveFrozen('freezenRowRange', order, frozen?.range)
+                } else {
+                    luckysheetFreezen.saveFrozen('freezenRCRange', order, { row_focus: frozen?.range?.row_focus || 0, column_focus: columnIndex })
+                }
+            }
             luckysheetFreezen.saveFreezen(null, null, luckysheetFreezen.freezenverticaldata, left);
             luckysheetsizeauto();//调节选区时下部单元格溢出
         }
