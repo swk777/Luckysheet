@@ -4338,6 +4338,7 @@ export default function luckysheetHandler() {
             $("#luckysheet-sheettable").css("cursor", "default");
             clearTimeout(Store.countfuncTimeout);
             Store.countfuncTimeout = setTimeout(function () { countfunc() }, 500);
+            method.createHookFunction("rangeDragCopyAfter");
         }
     });
 
