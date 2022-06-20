@@ -1253,34 +1253,6 @@ export default {
             "type": "rangeall"
         }]
     }, {
-        "n": "RANK_EQ",
-        "t": 1,
-        "d": "Returns the rank of a specified value in a dataset. If there is more than one entry of the same value in the dataset, the top rank of the entries will be returned.",
-        "a": "Top rank of a specified value in a dataset.",
-        "m": [2, 3],
-        "p": [{
-            "name": "value",
-            "detail": "The value whose rank will be determined.",
-            "example": "A10",
-            "require": "m",
-            "repeat": "n",
-            "type": "rangenumber"
-        }, {
-            "name": "data",
-            "detail": "The array or range containing the dataset to consider.",
-            "example": "A1:A100",
-            "require": "m",
-            "repeat": "n",
-            "type": "range"
-        }, {
-            "name": "is_ascending",
-            "detail": "Whether to consider the values in `data` in descending or ascending order. If omitted, the default is descending (FALSE).",
-            "example": "TRUE()",
-            "require": "o",
-            "repeat": "n",
-            "type": "rangeall"
-        }]
-    }, {
         "n": "RANK_AVG",
         "t": 1,
         "d": "Returns the rank of a specified value in a dataset. If there is more than one entry of the same value in the dataset, the average rank of the entries will be returned.",
@@ -7377,20 +7349,6 @@ export default {
             "type": "rangeall"
         }]
     }, {
-        "n": "TO_DATE",
-        "t": 16,
-        "d": "Converts a provided number to a date.",
-        "a": "Converts a provided number to a date.",
-        "m": [1, 1],
-        "p": [{
-            "name": "value",
-            "detail": "The argument or reference to a cell to be converted to a date.",
-            "example": "25405",
-            "require": "m",
-            "repeat": "n",
-            "type": "rangenumber"
-        }]
-    }, {
         "n": "TO_PURE_NUMBER",
         "t": 16,
         "d": "Converts a provided date/time, percentage, currency or other formatted numeric value to a pure number without formatting.",
@@ -7427,20 +7385,6 @@ export default {
         "p": [{
             "name": "value",
             "detail": "The argument or reference to a cell to be converted to a dollar value.",
-            "example": "A2",
-            "require": "m",
-            "repeat": "n",
-            "type": "rangenumber"
-        }]
-    }, {
-        "n": "TO_PERCENT",
-        "t": 16,
-        "d": "Converts a provided number to a percentage.",
-        "a": "Converts a provided number to a percentage.",
-        "m": [1, 1],
-        "p": [{
-            "name": "value",
-            "detail": "The argument or reference to a cell to be converted to a percentage.",
             "example": "A2",
             "require": "m",
             "repeat": "n",
