@@ -762,7 +762,7 @@ const luckysheetformula = {
             if (isNaN(row[0])) {
                 row[0] = 0;
             }
-            if (isNaN(row[1])) {
+            if (isNaN(row[1]) && sheetdata) {
                 row[1] = sheetdata.length - 1;
             }
             if (row[0] > row[1]) {
