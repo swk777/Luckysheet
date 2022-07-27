@@ -203,6 +203,13 @@ function setcellvalue(r, c, d, v, init = false) {
         }
     }
 
+    if (cell.v && typeof cell.v === 'string' && cell.v.startsWith('=')) {
+        let funcName = cell.v.substr(1).split('(')[0]
+        if (funcName && Store.customFormula.some(f => f.name === funcName)) {
+            cell.f = cell.v
+        }
+    }
+
     d[r][c] = cell;
 }
 

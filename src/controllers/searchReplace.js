@@ -772,6 +772,15 @@ const luckysheetSearchReplace = {
         else{
             tooltip.info(succeedInfo, "");
         }
+        setTimeout(() => {
+            for(let i = 0; i < searchIndexArr.length; i++){
+                let r = searchIndexArr[i].r;
+                let c = searchIndexArr[i].c;
+
+                // Hook function
+                method.createHookFunction("cellUpdated", r, c, '', Store.flowdata[r][c], false);
+            }
+        }, 0);
     }
 }
 
