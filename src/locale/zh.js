@@ -9380,7 +9380,7 @@ export default {
     fontFamily:{
         MicrosoftYaHei:"Microsoft YaHei",
     },
-    fontarray: ["Times New Roman","Arial","Tahoma","Verdana","微软雅黑","宋体","黑体","楷体","仿宋","新宋体","华文新魏","华文行楷","华文隶书"],
+    fontarray: ["sans-serif","Times New Roman","Arial","Tahoma","Verdana","微软雅黑","宋体","黑体","楷体","仿宋","新宋体","华文新魏","华文行楷","华文隶书"],
     fontjson: {"times new roman":0,"arial":1,"tahoma":2,"verdana":3,"微软雅黑":4,"microsoft yahei":4,"宋体":5,"simsun":5,"黑体":6,"simhei":6,"楷体":7,"kaiti":7,"仿宋":8,"fangsong":8,"新宋体":9,"nsimsun":9,"华文新魏":10,"stxinwei":10,"华文行楷":11,"stxingkai":11,"华文隶书":12,"stliti":12,},
     border:{
         borderTop:'上框线',
